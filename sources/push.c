@@ -6,7 +6,7 @@
 int push_front(m_list **head, char value) {
     m_list *tmp;
     if (*head == NULL) {
-        return 1;
+        return HEAD_IS_NULL;
     }
     tmp = init(value);
     tmp->node = (*head);
@@ -18,7 +18,7 @@ int push_front(m_list **head, char value) {
 int push_back(m_list **head, char value) {
     m_list *t_head = (*head);
     if (t_head == NULL) {
-        return 1;
+        return HEAD_IS_NULL;
     }
     while (t_head->node != NULL) {
         t_head = t_head->node;

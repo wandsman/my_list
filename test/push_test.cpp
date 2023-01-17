@@ -10,6 +10,7 @@ TEST(push_back, level_0) {
     res = push_back(&test, '7');
     ASSERT_EQ(res, 0);
     ASSERT_EQ(test->node->value, '7');
+    clear(test);
     SUCCEED();
 }
 
@@ -18,6 +19,7 @@ TEST(push_back, level_1) {
     m_list *test = nullptr;
     res = push_back(&test, '7');
     ASSERT_EQ(res, 1);
+    clear(test);
     SUCCEED();
 }
 
@@ -30,6 +32,7 @@ TEST(push_back, level_2) {
     ASSERT_EQ(test->value, '5');
     ASSERT_EQ(test->node->value, '7');
     ASSERT_EQ(test->node->node->value, '8');
+    clear(test);
     SUCCEED();
 }
 
@@ -45,7 +48,8 @@ TEST(push_back, level_4) {
         ASSERT_EQ(test->value, i);
         test = test->node;
     }
-
+    clear(test);
+    SUCCEED();
 }
 
 TEST(push_front, level_0) {
@@ -55,6 +59,7 @@ TEST(push_front, level_0) {
     ASSERT_EQ(res, 0);
     ASSERT_EQ(test->value, '7');
     ASSERT_EQ(test->node->value, '5');
+    clear(test);
     SUCCEED();
 }
 
@@ -63,5 +68,6 @@ TEST(push_front, level_1) {
     m_list *test = nullptr;
     res = push_front(&test, '7');
     ASSERT_EQ(res, 1);
+    clear(test);
     SUCCEED();
 }
