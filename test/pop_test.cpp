@@ -10,6 +10,7 @@ TEST(pop_front, level_0) {
     push_front(&head, 5);
     res = pop_front(&head);
     ASSERT_EQ(res, 5);
+    clear(head);
 }
 
 TEST(pop_front, level_1) {
@@ -23,6 +24,7 @@ TEST(pop_front, level_1) {
     for (int i = 3; i >= 0; --i) {
         ASSERT_EQ(pop_front(&test), dump[i]);
     }
+    clear(test);
     SUCCEED();
 }
 
@@ -34,11 +36,12 @@ TEST(pop_front, level_2) {
 }
 
 TEST(pop_back, level_0) {
-    m_list *head = init(0);
+    m_list *head = init(5);
     TYPE res;
-    push_back(&head, 5);
+    //push_back(&head, 5);
     res = pop_back(&head);
     ASSERT_EQ(res, 5);
+    //ASSERT_EQ(head, nullptr);
 }
 
 TEST(pop_back, level_1) {

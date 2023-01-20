@@ -39,16 +39,17 @@ TEST(push_back, level_2) {
 TEST(push_back, level_4) {
     int res = 0;
     char dump[4] = {'5', '7', '8', '1'};
-    m_list *test = init('5');
+    m_list *test = init('5'),*head;
     res = push_back(&test, dump[1]);
     res = push_back(&test, dump[2]);
     res = push_back(&test, dump[3]);
     ASSERT_EQ(res, 0);
+    head = test;
     for (char i: dump) {
         ASSERT_EQ(test->value, i);
         test = test->node;
     }
-    clear(test);
+    clear(head);
     SUCCEED();
 }
 

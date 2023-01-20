@@ -17,11 +17,15 @@ TYPE pop_front(m_list **head) {
 }
 
 TYPE pop_back(m_list **head) {
+    TYPE res;
     if ((*head) == NULL) {
         return HEAD_IS_NULL;
+    } else if((*head)->node == NULL) {
+        res = (*head)->value;
+        free((*head));
+        return res;
     }
     m_list *lst, *tmp = (*head);
-    TYPE res;
     while (tmp->node != NULL) {
         lst = tmp;
         tmp = tmp->node;
